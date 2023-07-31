@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+  {% load static %} 
 <head>
     <title>Weather App</title>
 <style>
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #963030;
+  background-size: cover;
   margin: 0;
   padding: 0;
 }
@@ -15,19 +16,21 @@ body {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #edeaea;
+ 
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(218, 209, 209, 0.884);
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: aqua;
 }
 
 form {
   display: flex;
   align-items: center;
+  color: aquamarine;
 }
 
 input[type="text"] {
@@ -45,9 +48,13 @@ input[type="submit"] {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
+h2{
+  color: aqua;
+}
 
 p {
   margin: 10px 0;
+  color: aquamarine;
 }
 
 img {
@@ -59,7 +66,9 @@ img {
 </style>
 
 </head>
-<body>
+<body background="{% static 'img/weather img.webp' %}" alt="">>
+  
+  
     <h1>Weather App</h1>
     <form method="post">
         {% csrf_token %}
@@ -78,5 +87,6 @@ img {
         <p>Description: {{ weather_data.description }}</p>
         <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}.png" alt="Weather Icon">
     {% endif %}
+ 
 </body>
 </html>
